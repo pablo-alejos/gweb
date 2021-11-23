@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		table {
+			width: 50%;
+			border-collapse: collapse;
+		}
+
+		td {
+			text-align: center;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		th {
+			background-color: #F7819F;
+		}
+
+		a[disabled] {
+			color: gray;
+			text-decoration: none;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="Grid.css">
+	<meta charset="utf-8" />
+
+	<title> Cómputo Grid </title>
+	<script>
+		var debug = true;
+		if (!debug) {
+			$(document).ready(function () {
+				var hoy = new Date();
+				var hora = hoy.getHours();
+				$("td > a").on("click", function (event) {
+					if ($(this).is("[disabled]")) {
+						event.preventDefault();
+					}
+				});
+				if (hora > 10 && hora < 14) {
+					$("#celda5").addClass("enabled");
+					$("td > a").removeAttr("disabled");
+					$("#celda10").addClass("enabled");
+					$("#celda15").addClass("enabled");
+					$("#celda20").addClass("enabled");
+				} else {
+					$("td > a").attr("disabled", "disabled");
+					$("#celda5").addClass("disabled");
+					$("#celda10").addClass("disabled");
+					$("#celda15").addClass("disabled");
+					$("#celda20").addClass("disabled");
+				}
+
+			});
+		}
+	</script>
+	<style>
+		.disabled {
+			color: #808080
+		}
+	</style>
+</head>
+
+<body bgcolor="#A6DEEC">
+	<center>
+		<h2> G R I D D E D A T O S </h2>
+	</center>
+	<center>
+		<table border="2" id="mitabla">
+			<tr>
+				<th> OV </th>
+				<th> Recurso </th>
+				<th> Ubicación </th>
+				<th> Disponibilidad </th>
+				<th> Utilidad </th>
+			</tr>
+			<tr>
+				<td> 1 </td>
+				<td> Nómina </td>
+				<td> Erin </td>
+				<td> 10:00 am - 2:00 pm </td>
+				<td id="celda5"><a href="http://25.58.137.25:8800/" target=_blank> Descargar </a></td>
+			</tr>
+			<tr>
+				<td> 2 </td>
+				<td> Empleados </td>
+				<td> Pablo </td>
+				<td> 10:00 am - 2:00 pm </td>
+				<a>
+					<td id="celda10"><a href="http://127.0.0.1:8800/" target=_blank> Descargar </a></td>
+				</a>
+			</tr>
+			<tr>
+				<td> 3 </td>
+				<td> Facturas </td>
+				<td> Brianda </td>
+				<td> 10:00 am - 2:00 pm </td>
+				<a>
+					<td id="celda15"><a href="http://25.83.162.180:8800/" target=_blank> Descargar </a></td>
+				</a>
+			</tr>
+			<tr>
+				<td> 4 </td>
+				<td> Reportes </td>
+				<td> Juan </td>
+				<td> 10:00 am - 2:00 pm </td>
+				<a>
+					<td id="celda20"><a href="http://25.83.206.50:8800/" target=_blank> Descargar </a></td>
+				</a>
+			</tr>
+		</table>
+	</center>
+	Hi {{ user.username }}!
+	<p><a href="{% url 'logout' %}">Log Out</a></p>
+	&copy; By CG Students. 2021-2.
+</body>
+
+</html>
