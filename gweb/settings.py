@@ -75,10 +75,14 @@ WSGI_APPLICATION = 'gweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+DDATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'d8lhnr1pjohk7k',
+        'USER': 'xaqalkvygbbgdq',
+        'PASSWORD': '282a2eb2a89d0f4f088599f182f7284ff3705b069baa98519f08f1db9611e6b8',
+        'HOST': 'ec2-34-236-136-215.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
